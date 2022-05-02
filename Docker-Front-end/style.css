@@ -1,0 +1,22 @@
+h2{
+    display: inline-block;
+}
+
+#titolo{
+    float: right;
+    display: inline-block;
+    
+}
+div{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: auto;
+}
+
+.edit{
+    margin-right: 50px;
+}
+
+body{
+    margin-top: 25px;
+}

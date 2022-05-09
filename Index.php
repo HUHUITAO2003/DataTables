@@ -14,23 +14,27 @@ switch ($method) {
     break;
 
   case 'POST':
+    $ordercol = $_POST['order'][0]['column'];
+    $order = $_POST['order'][0]['dir'];
+    $search = $_POST['search'];
     $start = $_POST['start'];
     $length = $_POST['length'];
 
     header('Content-Type: application/hal+json;charset=UTF-8');
-    $table=$sql->get($start,$length);
+    $table=$sql->get($start,$length,$search['value'],$ordercol, $order);
     $table['recordsTotal'] = $sql->count();
     
     echo json_encode($table, JSON_UNESCAPED_SLASHES);
     break;
 
   case 'GET':
+    $search = $_POST['search']['value'];
     $start = $_POST['start'];
     $length = $_POST['length'];
     $table = array();
 
     header('Content-Type: application/hal+json;charset=UTF-8');
-    $table=$sql->get($start,$length);
+    $table=$sql->get($start,$length,$search,$search['value'],$ordercol, $order);
     $table['recordsTotal'] = $sql->count();
 
     echo json_encode($table, JSON_UNESCAPED_SLASHES);

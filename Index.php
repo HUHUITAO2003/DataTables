@@ -28,13 +28,10 @@ switch ($method) {
     break;
 
   case 'GET':
-    $search = $_POST['search']['value'];
-    $start = $_POST['start'];
-    $length = $_POST['length'];
     $table = array();
 
     header('Content-Type: application/hal+json;charset=UTF-8');
-    $table=$sql->get($start,$length,$search,$search['value'],$ordercol, $order);
+    $table=$sql->getID(10001);
     $table['recordsTotal'] = $sql->count();
 
     echo json_encode($table, JSON_UNESCAPED_SLASHES);

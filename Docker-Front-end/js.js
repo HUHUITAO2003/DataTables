@@ -3,7 +3,7 @@ $(document).ready(function () {
     "processing": true,
     "serverSide": true,
     "ajax": {
-      "url": "../Index.php",
+      "url": "../index.php",
       "type": "POST"
   },
     "columns": [
